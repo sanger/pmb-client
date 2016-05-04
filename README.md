@@ -1,39 +1,40 @@
-# Pmb::Client
+# PMB
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pmb/client`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+pmb-client is a tiny gem that acts as a client to the [Print My Barcode](https://github.com/sanger/print_my_barcode) web service. It is dependent on the [json_api_client gem](https://github.com/chingor13/json_api_client).
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pmb-client'
+gem 'pmb-client', '0.1.0', :github => 'jbeast/pmb-client'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install pmb-client
-
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'pmb'
 
-## Development
+# set the api base url
+PMB::Base.site = 'http://pmb.server:1234/api/v1'
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+The client implements the following resources:
+  - PMB::LabelType
+  - PMB::LabelTemplate
+  - PMB::Label
+  - PMB::Bitmap
+  - PMB::Barcode
+  - PMB::PrintJob
+  - PMB::Printer
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+For usage instructions see the [json_api_client README](https://github.com/chingor13/json_api_client).
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pmb-client. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+The PMB::PrintJob also has the convinience class method `execute`. This is an alias of `create`.
 
 ## License
 

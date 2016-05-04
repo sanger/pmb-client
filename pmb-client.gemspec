@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A client to the Print My Barcode web service}
   spec.homepage      = "https://github.com/jbeast/pmb-client"
-  spec.license       = "MIT"
+  spec.license       = "GPL-3.0"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
