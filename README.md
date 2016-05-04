@@ -38,5 +38,5 @@ The PMB::PrintJob also has the convinience class method `execute`. This is an al
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [GPL 3.0 License](https://opensource.org/licenses/GPL-3.0).
 
