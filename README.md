@@ -17,7 +17,7 @@ And then execute:
 ## Usage
 
 ```ruby
-require 'pmb'
+require 'pmb-client'
 
 # set the api base url
 PMB::Base.site = 'http://pmb.server:1234/api/v1'

@@ -1,4 +1,4 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'pmb'
+require 'pmb-client'
 
 require 'minitest/autorun'
