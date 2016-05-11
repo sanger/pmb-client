@@ -20,7 +20,7 @@ And then execute:
 require 'pmb-client'
 
 # set the api base url
-PMB::Base.site = 'http://pmb.server:1234/api/v1'
+PMB::Base.site = 'http://pmb.server:1234/v1'
 ```
 
 The client implements the following resources:
