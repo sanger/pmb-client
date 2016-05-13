@@ -20,7 +20,7 @@ And then execute:
 require 'pmb-client'
 
 # set the api base url
-PMB::Base.site = 'http://pmb.server:1234/api/v1'
+PMB::Base.site = 'http://pmb.server:1234/v1'
 ```
 
 The client implements the following resources:
@@ -35,6 +35,43 @@ The client implements the following resources:
 For usage instructions see the [json_api_client README](https://github.com/chingor13/json_api_client).
 
 The PMB::PrintJob also has the convinience class method `execute`. This is an alias of `create`.
+
+### Some examples
+
+Basic print job creation.
+```ruby
+PMB::PrintJob.create(
+  printer_name:'printer_name',
+  label_template_id:1,
+  labels:{
+    body:[{
+      label_name:{
+        bitmap_name_a:'bitmap_text',
+        bitmap_name_b:'bitmap_text',
+        barcode_name_a:'barcode_value'
+      }
+    }]
+  }
+)
+```
+
+Registering a new template type
+```ruby
+label_type_id = PMB::LabelType.all.detect {|lt| lt.name == 'Example Type'}.id
+label_template = PMB::LabelTemplate.create({
+  name: 'Temlatey McTemplateface',
+  label_type_id: label_type_id, # Plate
+  labels_attributes:[{
+    name: 'label_name',
+    bitmaps_attributes:[
+      {"horizontal_magnification":"05","vertical_magnification":"1","font":"G","space_adjustment":"00","rotational_angles":"00","x_origin":"0030","y_origin":"0035","field_name":"bitmap_name_a"},
+      {"horizontal_magnification":"05","vertical_magnification":"1","font":"G","space_adjustment":"00","rotational_angles":"00","x_origin":"0030","y_origin":"0065","field_name":"bitmap_name_b"}
+    ],
+    barcodes_attributes:[{"barcode_type":"9","one_module_width":"02","height":"0070","x_origin":"0300","y_origin":"0000","field_name":"barcode_name_a"}]
+  }]
+})
+```
+
 
 ## License
 
