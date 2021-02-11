@@ -1,0 +1,25 @@
+name: Ruby
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test_and_coverage:
+
+    runs-on: ubuntu-latest
+    name: Ruby Test
+    strategy:
+      matrix:
+        ruby: [ '2.5', '2.6', '2.7', '3.0' ]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true # Runs bundle install and caches gems. See the ruby_test.yml
+                            # example if you need more control over bundler.
+    - name: Test
+      run: bundle exec rake test
