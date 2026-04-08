@@ -1,6 +1,6 @@
 # Contributing
 
-All contributions to this project are subject to the [MIT License](https://foss-haas.mit-license.org/). By submitting a contribution, you agree to license your work under these terms.
+All contributions to this project are subject to the [GPL 3.0 License](https://opensource.org/license/GPL-3.0). By submitting a contribution, you agree to license your work under these terms.
 
 ## Contribution Process
 
